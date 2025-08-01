@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/* This sheet affects the appearance of elements in the html files*/
+p{
+    font-weight: bold;
+}
+
+ol{
+    font-style: italic;
+}
+#top{
+    text-decoration: underline;
+    font-size: 150px; /* 150 pixels per font*/
+}
+/*Use period to denote class wasn't there originally (was imported)*/
+.important{
+    font-style: normal;
+    color: #00524C;
+
+}
+/* ol{
+    text-decoration: underline;
+}
+*/
+body{
+    background-color: #FCF6E0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center; /* Can get content centered on website. Put in ordered list (list, style, position) so that lists are still along left margin of the page*/
+}
+
+h2{
+    font-size: 90px;
+    color: #F87E00
+}
