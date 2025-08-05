@@ -4,13 +4,20 @@
          <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <title>Corn</title>
-         <link rel="stylesheet" type="text/css" href="/MaizeStyles.css"> <!--This connects our styles.css file to the main webpage-->
-        
+          <link rel="stylesheet" type="text/css" href="MaizeStyles.css"> <!--This connects our styles.css file to the main webpage-->
+        <nav>
+            <a href="#secton1"> Learn about the amazing nutritional properties of and historical impacts of corn</a> |
+        <a href="#section2"> More information about the history of corn</a> |
+        <a href="#section3"> An inspirational video about corn</a> |
+        <a href="#section4"> Stats about corn</a> |
+        <a href="#section5"> A corn monument</a> |
+        <a href ="#section6"> Corn games</a>
+    </nav>
          
     </head>
     <body>
         <h1>Corn is an amazing crop</h1>
-        <h2>Here are some reasons (in order of importance) as to why corn is so revolutionary:</h2>
+        <h2 id="section1">Here are some reasons (in order of importance) as to why corn is so revolutionary:</h2>
             <ol>
                 <li>
                     High Caloric Yield per Acre
@@ -82,10 +89,12 @@
             </ol>
         </ul>
         <img src="startbootstrap-resume-gh-pages/assets/img/maize.jpg" alt = "maize varieties" width="1000">
-    </body>
+
+        <h2 id="section2">History of Corn</h2>
 
     <p>If you want to learn more about the history of corn, please click <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> here </a> </p>
     <br>
+    <h2 id="section3">CORN-spiration!!!</h3>
     <p>Below is a heartwarming and inspirational video about corn:</p>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/_caMQpiwiaU?si=T7okvtNVTzrfAGeE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <br>
@@ -105,4 +114,176 @@
 
     <br>
 
+    <h2 id="section4">Corn stats&#128200;</h2>
+
+    <p>The following is a visualization of national corn production in the United States:</p>
+
+    <div class='tableauPlaceholder' id='viz1754015027181' style='position: relative'><noscript><a href='#'><img alt='National corn production, 1866-2016Filter by year and highlight states using dropdowns at right to see how many bushels of corn each state produces annually. Source: USDA National Agricultural Statistics Service ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Na&#47;Nationalcornproduction&#47;Dashcornnational&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Nationalcornproduction&#47;Dashcornnational' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Na&#47;Nationalcornproduction&#47;Dashcornnational&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div> <script type='text/javascript'> var divElement = document.getElementById('viz1754015027181'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement); </script>
+
+    <br>
+
+    <h2 id="section5">A Corn Monument</h2>
+
+        <p>A peculiar monument to corn in Dublin, Ohio</p>
+        <img src="startbootstrap-resume-gh-pages/assets/img/CornHenge.jpg" width="1000">
+
+        <br>
+
+        <p>The corn palace in Iowa</p>
+        <img src="startbootstrap-resume-gh-pages/assets/img/corn_palace.webp" width="1000">
+        
+
+    <h2 id="section6">The Maize Maze Game</h2>
+
+<div class="div-section">
+  <h3>Play Corn-Man 🌽</h3>
+  <p>Use arrow keys to collect the popcorn 🍿 and avoid the spoiled corn 💀🌽!</p>
+  <div id="cornGameScore">Score: 0</div>
+  <div id="cornGame"></div>
+</div>
+
+<style>
+  #cornGame {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 2px;
+    justify-content: center;
+    margin: 20px auto;
+  }
+
+  #cornGame .cell {
+    width: 40px;
+    height: 40px;
+    background-color: #FFDB28;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 4px;
+  }
+
+  #cornGameScore {
+    font-size: 18px;
+    color: #00524C;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  #cornGame .player {
+    background-color: #F87E00;
+  }
+
+  #cornGame .enemy {
+    background-color: #00524C;
+    color: white;
+  }
+</style>
+
+<script>
+  (function() {
+    const gridSize = 10;
+    const gameContainer = document.getElementById('cornGame');
+    const scoreDisplay = document.getElementById('cornGameScore');
+    const cells = [];
+
+    let playerPos = 0;
+    let enemyPos = 99;
+    let score = 0;
+
+    const popcornEmoji = '🍿';
+    const cornEmoji = '🌽';
+    const enemyEmoji = '💀🌽';
+
+    // Create grid
+    for (let i = 0; i < gridSize * gridSize; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.dataset.index = i;
+      if (Math.random() < 0.2 && i !== playerPos && i !== enemyPos) {
+        cell.textContent = popcornEmoji;
+      }
+      cells.push(cell);
+      gameContainer.appendChild(cell);
+    }
+
+    function draw() {
+      cells.forEach((cell, index) => {
+        cell.classList.remove('player', 'enemy');
+        if (index == playerPos) {
+          cell.classList.add('player');
+          cell.textContent = cornEmoji;
+        } else if (index == enemyPos) {
+          cell.classList.add('enemy');
+          cell.textContent = enemyEmoji;
+        } else if (cell.textContent !== popcornEmoji) {
+          cell.textContent = '';
+        }
+      });
+    }
+
+    function movePlayer(dir) {
+      let next = playerPos;
+      if (dir === 'ArrowUp' && playerPos >= gridSize) next -= gridSize;
+      if (dir === 'ArrowDown' && playerPos < gridSize * (gridSize - 1)) next += gridSize;
+      if (dir === 'ArrowLeft' && playerPos % gridSize !== 0) next -= 1;
+      if (dir === 'ArrowRight' && (playerPos + 1) % gridSize !== 0) next += 1;
+
+      if (cells[next].textContent === popcornEmoji) {
+        score++;
+        scoreDisplay.textContent = `Score: ${score}`;
+      }
+
+      playerPos = next;
+
+      if (playerPos === enemyPos) {
+        alert('💀 Oh no! You were caught by spoiled corn!\nFinal Score: ' + score);
+        location.reload();
+      }
+
+      draw();
+    }
+
+    function moveEnemy() {
+      const possibleMoves = [];
+      if (enemyPos >= gridSize) possibleMoves.push(enemyPos - gridSize);
+      if (enemyPos < gridSize * (gridSize - 1)) possibleMoves.push(enemyPos + gridSize);
+      if (enemyPos % gridSize !== 0) possibleMoves.push(enemyPos - 1);
+      if ((enemyPos + 1) % gridSize !== 0) possibleMoves.push(enemyPos + 1);
+
+      // Move toward player
+      possibleMoves.sort((a, b) => {
+        const aDist = Math.abs(a % gridSize - playerPos % gridSize) + Math.abs(Math.floor(a / gridSize) - Math.floor(playerPos / gridSize));
+        const bDist = Math.abs(b % gridSize - playerPos % gridSize) + Math.abs(Math.floor(b / gridSize) - Math.floor(playerPos / gridSize));
+        return aDist - bDist;
+      });
+
+      enemyPos = possibleMoves[0];
+
+      if (playerPos === enemyPos) {
+        alert('💀 Oh no! You were caught by spoiled corn!\nFinal Score: ' + score);
+        location.reload();
+      }
+
+      draw();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        movePlayer(e.key);
+        moveEnemy();
+      }
+    });
+
+    draw();
+  })();
+</script>
+
+
     <p>I hope you have a CORN-tastic day!!!&#127805;&#127805;&#127805;&#127805;&#127805;</p>
+
+    <a href="#top">Back to top</a>
+    <br>
+    <a href="startbootstrap-resume-gh-pages/index.html" >Learn about the mastermind behind this wealth of a-MAIZE-ing knowledge!</a>
+   </body>
+  
